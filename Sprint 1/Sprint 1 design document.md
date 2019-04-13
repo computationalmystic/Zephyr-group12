@@ -131,10 +131,10 @@ n/a
 ## Describe languages you need to use, and any gaps in skills on your team. 
 
 1. first language 
-    - how you will use examples or learn what you need
+    - C/C++
 2. second language 
-    - how you will use examples or learn what you need
+    - Python
 3. Skill gaps, if any, otherwise specify who is doing what
-    - name
+    - Yongyu Deng working on Smoke Detection Use Case
     - name
     - skill gap 
