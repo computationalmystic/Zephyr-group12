@@ -136,5 +136,5 @@ n/a
     - Python
 3. Skill gaps, if any, otherwise specify who is doing what
     - Yongyu Deng working on Smoke Detection Use Case
-    - name
+    - Thomas Ertl working on Temperature Control Use Case
     - skill gap 
