@@ -99,8 +99,8 @@ We have decided to not deploy a database on a server, and rather save local file
 
 ### ERD
 
-**some kind of logical ERD, at least, that lets us know what data is being managed**
-![ERD](../UseCaseDiagrams/example.png)
+
+![ERD](../ERD/ERD1.png)
 
 ### DDL 
 
