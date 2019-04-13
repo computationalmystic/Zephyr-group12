@@ -2,8 +2,78 @@
 
 ## Deployment Environment
 
-- Describe how, with relative ease, your TA's and instructors can run  the programs you have built. If they are deployed on a server, don't worry about that, but they might not be. 
-- Instructions on environment parameters we need to set and use. Look at Christian's example in slack. 
+Create a Zephyr virtual environment. (Some of the downloads you will need may not work on your local machine without an environment due to other downloads you may already have & user preferences set).
+
+Install Virtualenv  
+`python3 -m pip install virtualenv`
+
+Create environment called zephyr   
+`python -m virtualenv zephyr`
+
+Activate and enter VM  
+`source zephyr/bin/activate`
+
+You will need homebrew; get it here:  
+https://brew.sh
+
+install these tools with brew  
+`brew install cmake ninja gperf ccache dfu-util qemu dtc python3`
+
+You will need West, a Zephyr tool  
+`pip3 install west`
+
+Check your version and make sure it’s 0.5.0 or better  
+`west --version`
+
+Next, clone the Zephyr source code repositories from GitHub using the west tool you just installed.  
+ `west init zephyrproject`  
+ `cd zephyrproject`  
+ `west update`
+
+ Next, install additional Python packages required by Zephyr:  
+ `pip3 install -r zephyr/scripts/requirements.txt`
+
+This part can be done different ways by downloading different toolchains. Here is what works for setting the ZEPHYR_TOOLCHAIN_VARIANT.
+
+Download the following toolchain by clicking ‘Downloads’:  
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm
+
+Scroll down to **GNU Arm Embedded Toolchain: 7-2017-q4-major** and select. (This download has no known issues, whereas 2018 is still a bit buggy).
+
+Scroll back up and download the Mac OS X 64-bit (This may take a minute)
+
+Move the toolchain to home/opt (That is where Zephyr looks for toolchains by default):  
+`mkdir -p "${HOME}"/opt`  
+`cd "${HOME}"/opt`  
+`tar xjf ~/Downloads/gcc-arm-none-eabi-7-2017-q4-major-mac.tar.bz2`  
+`chmod -R -w "${HOME}"/opt/gcc-arm-none-eabi-7-2017-q4-major`
+
+Now back to the zephyr environment. Navigate to the main project directory:  
+`cd zephyrproject/zephyr`
+
+## Set up your build environment:  
+`source zephyr-env.sh`
+
+Build the application:  
+`cd $ZEPHYR_BASE/samples/hello_world`  
+`mkdir build && cd build`
+
+Set toolchain variable  
+`export GNUARMEMB_TOOLCHAIN_PATH='~/opt/gcc-arm-none-eabi-7-2017-q4-major/'`
+
+Set Zephyr Variant  
+`export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb`
+
+CMake a board of your choosing, qemu_cortex_m3 works with our toolchain and allows us to see visual output. (The board MUST be compatible with the toolchain we just downloaded, or else you will get an error when running this command):  
+`cmake -GNinja -DBOARD=qemu_cortex_m3 ..`
+
+Finally, run the ninja command  
+`ninja run`
+
+### File Management
+
+We have decided to not deploy a database on a server, and rather save local files in the system. This will allow us to keep saved data in the system such as system settings and security pin.
+
 - You may decide not to deploy a database on a server, but please do describe how your system will save data to be loaded on restart. And, if you don't plan to do this, also let us know. 
 
 ## Functional Requirements
