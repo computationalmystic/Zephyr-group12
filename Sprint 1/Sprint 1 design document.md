@@ -2,6 +2,8 @@
 
 ## Deployment Environment
 
+This tutorial works on Mac.
+
 Create a Zephyr virtual environment. (Some of the downloads you will need may not work on your local machine without an environment due to other downloads you may already have & user preferences set).
 
 Install Virtualenv  
