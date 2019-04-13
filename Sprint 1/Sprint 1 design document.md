@@ -51,7 +51,7 @@ Move the toolchain to home/opt (That is where Zephyr looks for toolchains by def
 Now back to the zephyr environment. Navigate to the main project directory:  
 `cd zephyrproject/zephyr`
 
-## Set up your build environment:  
+Set up your build environment:  
 `source zephyr-env.sh`
 
 Build the application:  
