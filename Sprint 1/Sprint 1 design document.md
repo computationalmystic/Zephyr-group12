@@ -137,4 +137,4 @@ n/a
 3. Skill gaps, if any, otherwise specify who is doing what
     - Yongyu Deng working on Smoke Detection Use Case
     - Thomas Ertl working on Temperature Control Use Case
-    - skill gap 
+    - Wenbin Guo working on Access Detection Use Case
