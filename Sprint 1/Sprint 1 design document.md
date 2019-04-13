@@ -1,4 +1,4 @@
-# Sprint 1 Design Document Template
+# Sprint 1 Design Document
 
 ## Deployment Environment
 
