@@ -74,8 +74,6 @@ Finally, run the ninja command
 
 We have decided to not deploy a database on a server, and rather save local files in the system. This will allow us to keep saved data in the system such as system settings and security pin.
 
-- You may decide not to deploy a database on a server, but please do describe how your system will save data to be loaded on restart. And, if you don't plan to do this, also let us know. 
-
 ## Functional Requirements
 
 1. Smoke Detection Use Case
