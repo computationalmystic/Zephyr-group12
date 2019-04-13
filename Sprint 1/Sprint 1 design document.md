@@ -104,6 +104,7 @@ We have decided to not deploy a database on a server, and rather save local file
 
 ![ERD](../ERD/ERD1.png)
 
+![ERD](../ERD/ERD2.png)
 ### DDL 
 
 n/a
