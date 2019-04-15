@@ -113,23 +113,21 @@ n/a
 
 ### User Interface Files
 
-1. first one
-2. second one
-3. etc.
+1. SmartphoneInterface (The user interface of the system. It's connected to all three use cases: Access Detection, Smoke Detection, Temperature Controll)
 
 
 ### Model Files (Database Access)
 
-1. first one
-2. second one
-3. etc
+1. MotionSensorModel (It's connected to Access Detection use case)
+2. SmokeSensorModel (It's connected to Smoke Detection use case)
+3. TemperatureModel (It's connected to Temperature Control use case)
 
 
 ### Controller Files (API or other)
 
-1. first one 
-2. second one
-3. etc. 
+1. MotionSensorController (It's connected to Access Detection use case)
+2. SmokeSensorController (It's connected to Smoke Detection use case)
+3. TemperatureController (It's connected to Temperature Control use case)
 
 ## Describe languages you need to use, and any gaps in skills on your team. 
 
