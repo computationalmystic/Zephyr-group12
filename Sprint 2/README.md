@@ -8,6 +8,7 @@
 	- The users shall be able to activate and deactivate the smoke sensor.
 	- The system shall display the specific location the smoke detected.
 	- The home owner shall be able to manage the access level of family members.
+	- Children should have low access level, and when they try to deactivate any smoke sensor, it will be done only if parents get notified and approve the request.
 	- The system shall be able to call 911 when no response from any user.
 2. [Access Detection Use Case](https://github.com/computationalmystic/Zephyr-group12/blob/master/Use%20Cases/Access%20Detection%20Use%20Case.md)		
 	- The users shall be able to activate and deactivate the access sensor.
