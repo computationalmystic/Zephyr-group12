@@ -58,7 +58,9 @@ It allows us to display and receive text from the user.
 ## Revised ERD
 ![ERD](../ERD/RevisedERD1.png)
 ![ERD](../ERD/RevisedERD2.png)
-## What is necessary for your whole system to work – data sources, functions, etc. The full inventory.
+## What is necessary for your whole system to work
+- Data sources: Temperature sensors data
+- Functions: Set temperature
 
 ## Show clearly how the different software components communicate.
 - The software will read in and display to the user temperature values from sensors placed throughout the home.
@@ -251,7 +253,6 @@ void main(void)
 - Unit tests
 
 ![](../home_temp/temp_test.png)
-
 
 ## Testing
 
