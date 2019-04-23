@@ -1,24 +1,19 @@
-.. _hello_world:
-
-Hello World
+Home Temperature Control
 ###########
 
 Overview
 ********
-A simple Hello World example that can be used with any supported board and
-prints 'Hello World' to the console. This application can be built into modes:
+A simple program that will ask you to input your preferable home temperature. It will then output your set temperature and tell you if it is heating or cooling your home.
 
-* single thread
-* multi threading
 
 Building and Running
 ********************
 
-This project outputs 'Hello World' to the console.  It can be built and executed
+This project outputs your desired home temperature to the console.  It can be built and executed
 on QEMU as follows:
 
 .. zephyr-app-commands::
-   :zephyr-app: samples/hello_world
+   :zephyr-app: home_temp
    :host-os: unix
    :board: qemu_x86
    :goals: run
@@ -29,4 +24,4 @@ Sample Output
 
 .. code-block:: console
 
-    Hello World! x86
+    Your home is set to 70F.
