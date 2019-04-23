@@ -181,7 +181,7 @@ void main(void)
 ```
 - Unit tests
 
-![](..home_temp/temp_test.png)
+![](../home_temp/temp_test.png)
 
 
 ## Testing
