@@ -36,6 +36,39 @@
 ## Coding
 - DDL
 - Dummy data
+	- User
+	
+	UserID|UserName|UserPassword|AccessLevel
+	|:--:|:------:|:----------:|:--------:|
+	1|user1|123456|Admin
+	2|user2|1234567|Children
+	
+	- ThermoStat
+	
+	ThermostatID|RoomNum|Mode|Temperature
+	|:---------:|:-----:|:--:|:---------:|
+	1|1|Cooling|72|
+	
+	- TempSensor
+	
+	SensorID|SensorIP|RoomNum
+	|:-----:|:------:|:-----:|
+	1|192.168.10.1|1
+	
+	- Room
+	
+	RoomID|Type|UserID
+	|:---:|:--:|:----:|
+	1|Bedroom|1
+	
+	- RoomStatus
+	
+	StatusID|RoomID|Temperature
+	|:-----:|:----:|:---------:|
+	1|1|80
+	
+	
+	      
 - Prototype code
 - Unit tests
 
