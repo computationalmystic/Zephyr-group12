@@ -1,7 +1,39 @@
 # Sprint 2
 ## Configuring instruction
-
+To setup Zephyr, please head to [Sprint 1](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint%201/Sprint%201%20design%20document.md)
+	
+Download our **home_temp folder** from this repository and then place it inside your main zephyr directory *User/zephyrproject/zephyr*.    
+`git clone https://github.com/computationalmystic/Zephyr-group12.git`
+	
+Activate and Enter VM  
+`source zephyr/bin/activate`
+	
+Now back to the zephyr environment. Navigate to the main project directory:    
+`cd zephyrproject/zephyr`
+	
+Setup your bulid environment  
+`source zephyr-env.sh`
+	
+Navigate to the previously downloaded Home_Temp folder and create a build directory  
+`cd $ZEPHYR_BASE/home_temp`    
+`mkdir build && cd build`
+	
+Set toolchain variable  
+`export GNUARMEMB_TOOLCHAIN_PATH='~/opt/gcc-arm-none-eabi-7-2017-q4-major/'`
+	
+Set Zephyr Variant  
+`export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb`
+	
+CMake the board we used in the hello world example  
+`cmake -GNinja -DBOARD=qemu_cortex_m3 ..`
+	
+Now run the program  
+`ninja run`
+	
+	
 ## Board emulator
+We will be using the qemu_cortex_m3 board for emulating on a MacOS environment.
+It allows us to display and receive text from the user.
 
 ## Revised functional requirements
 1. [Smoke Detection Use Case](https://github.com/computationalmystic/Zephyr-group12/blob/master/Use%20Cases/Smoke%20Detection%20Use%20Case.md)
