@@ -16,6 +16,7 @@ void main(void)
 	console_getline_init();
 
     char *curTemp = "70";
+    char *setTemp = "68";
     
     //curTemp = get_current_temp("Output.txt");
     
@@ -24,19 +25,20 @@ void main(void)
 
     // Wait for user input then read house temp back to them.
 	while (1) {
-		char *s = console_getline();
-        int i = atoi(s);
+		//char *s = console_getline();
+        setTemp = console_getline();
+        int i = atoi(setTemp);
         
         //printk("Your home has been set to: %sF\n", s);
         if(i > 70)
         {
-            printk("Your home is heating to %sF\n", s);
+            printk("Your home is heating to %sF\n", setTemp);
         }else if(i == 70)
         {
-            printk("Your home is already at %sF\n", s);
+            printk("Your home is already at %sF\n", setTemp);
         }
         else
-            printk("Your home is cooling to %sF\n", s);
+            printk("Your home is cooling to %sF\n", setTemp);
         
         printk("Please push CTRL+A then X to exit\n");
 		//printk("last char was: 0x%x\n", s[strlen(s) - 1]);
