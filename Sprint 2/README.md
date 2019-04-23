@@ -255,4 +255,4 @@ void main(void)
 ![](../home_temp/temp_test.png)
 
 ## Testing
-
+![](../home_temp/temp_test.png)
