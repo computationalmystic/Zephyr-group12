@@ -106,6 +106,7 @@ It allows us to display and receive text from the user.
 	      
 - [Prototype Code](https://github.com/computationalmystic/Zephyr-group12/blob/master/home_temp/src/main.c)
 - Unit tests
+![] (..home_temp/temp_test.png)
 
 
 ## Testing
