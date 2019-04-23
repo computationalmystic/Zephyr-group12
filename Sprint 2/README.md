@@ -32,7 +32,7 @@
 - Document the reasons for your decisions where you have choices in design.
 
 ## Mock up a full visual design
-
+![ERD](../Visual Design/AppUI.PNG)
 ## Coding
 - DDL
 - Dummy data
