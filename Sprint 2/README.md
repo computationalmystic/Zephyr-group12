@@ -1,41 +1,7 @@
 # Sprint 2
 ## Configuring instruction
-To setup Zephyr, please head to [Sprint 1](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint%201/Sprint%201%20design%20document.md)
-
-Download our Home_Temp folder from this repository inside your zephyr environment.  
-`cd zephyrproject/zephyr`  
-`git clone`
-
-Activate and Enter VM  
-`source zephyr/bin/activate`
-
-Now back to the zephyr environment. Navigate to the main project directory:    
-`cd zephyrproject/zephyr`
-
-
-Setup your bulid environment  
-`source zephyr-env.sh`
-
-Navigate to the previously downloaded Home_Temp folder and create a build directory  
-`cd $ZEPHYR_BASE/home_temp`    
-`mkdir build && cd build`
-
-Set toolchain variable  
-`export GNUARMEMB_TOOLCHAIN_PATH='~/opt/gcc-arm-none-eabi-7-2017-q4-major/'`
-
-Set Zephyr Variant  
-`export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb`
-
-CMake the board we used in the hello world example  
-`cmake -GNinja -DBOARD=qemu_cortex_m3 ..`
-
-Now run the program  
-`ninja run`
-
 
 ## Board emulator
-We will be using the qemu_cortex_m3 board for emulating on a MacOS environment.
-It allows us to display and receive text from the user.
 
 ## Revised functional requirements
 1. [Smoke Detection Use Case](https://github.com/computationalmystic/Zephyr-group12/blob/master/Use%20Cases/Smoke%20Detection%20Use%20Case.md)
@@ -66,10 +32,47 @@ It allows us to display and receive text from the user.
 - Document the reasons for your decisions where you have choices in design.
 
 ## Mock up a full visual design
-![ERD](../Visual%20Design/AppUI.PNG)
+- [guowenbin.space/group12](guowenbin.space/group12)
+- ![ERD](../Visual%20Design/WebUI1.png)
+- ![ERD](../Visual%20Design/WebUI2.png)
+- The web interface design is PC and mobile compatible. Users can manage and control the system remotely.
+- ![ERD](../Visual%20Design/AppUI.PNG)
 ## Coding
 - DDL
 - Dummy data
+	- User
+	
+	UserID|UserName|UserPassword|AccessLevel
+	|:--:|:------:|:----------:|:--------:|
+	1|user1|123456|Admin
+	2|user2|1234567|Children
+	
+	- ThermoStat
+	
+	ThermostatID|RoomNum|Mode|Temperature
+	|:---------:|:-----:|:--:|:---------:|
+	1|1|Cooling|72|
+	
+	- TempSensor
+	
+	SensorID|SensorIP|RoomNum
+	|:-----:|:------:|:-----:|
+	1|192.168.10.1|1
+	
+	- Room
+	
+	RoomID|Type|UserID
+	|:---:|:--:|:----:|
+	1|Bedroom|1
+	
+	- RoomStatus
+	
+	StatusID|RoomID|Temperature
+	|:-----:|:----:|:---------:|
+	1|1|80
+	
+	
+	      
 - Prototype code
 - Unit tests
 
