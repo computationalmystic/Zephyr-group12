@@ -61,7 +61,8 @@ It allows us to display and receive text from the user.
 ## What is necessary for your whole system to work – data sources, functions, etc. The full inventory.
 
 ## Show clearly how the different software components communicate.
-- Document the reasons for your decisions where you have choices in design.
+- The software will read in and display to the user temperature values from sensors placed throughout the home.
+- The webpage and mobile app will allow the user to set and observe their home temperature.
 
 ## Mock up a full visual design
 - [webpage](http://guowenbin.space/group12)
