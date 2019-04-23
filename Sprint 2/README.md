@@ -32,6 +32,10 @@
 - Document the reasons for your decisions where you have choices in design.
 
 ## Mock up a full visual design
+[guowenbin.space/group12](guowenbin.space/group12)
+![ERD](../Visual%20Design/WebUI1.PNG)
+![ERD](../Visual%20Design/WebUI2.PNG)
+The web interface design is PC and mobile compatible. Users can manage and control the system remotely.
 ![ERD](../Visual%20Design/AppUI.PNG)
 ## Coding
 - DDL
