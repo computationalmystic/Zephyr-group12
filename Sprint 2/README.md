@@ -24,7 +24,7 @@
 	- The system will display system settings.
 	- The user will be able to access the system settings to edit them such as system date.
 ## Revised ERD
-
+![ERD](../ERD/RevisedERD.png)
 ## What is necessary for your whole system to work – data sources, functions, etc. The full inventory.
 
 ## Show clearly how the different software components communicate.
