@@ -397,3 +397,7 @@ void deleteUser()
 ## Testing
 ![](../home_temp/temp_test.png)
 ## Technical Obstacles
+- We've had some issues doing simple coding in C as it seems Zephyr doesn't recognize include files such as stdio.h and other common C headers. 
+- We couldn't get lwm2m working on a Mac machine, although speaking with group 3 we're going to be trying to implement a virtual machine to get a working server online.
+- We spent a lot of time experimenting with different boards and sensors, and going through Zephyr documentation. A lot of the Zephyr documentation discusses running samples located in *User/zephyrproject/zephyr/samples* and then needing actual hardware to be hooked up in order to be implemented. We're not sure if we're just missing something on how to emulate these sensors, as while we can get some boards and sensors to build, ninja/ninja run usually comes back with something similar to *nothing to do* or *this board cannot be emulated*.
+- Overall I think we don't have much or any experience working with Zephyr or in low-level environments and emulating data to implement a use case has been a challenge.
