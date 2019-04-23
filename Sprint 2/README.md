@@ -252,7 +252,6 @@ void main(void)
 ```
 - Unit tests
 
-![](../home_temp/temp_test.png)
 
 ## Testing
 ![](../home_temp/temp_test.png)
