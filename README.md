@@ -51,7 +51,7 @@ Run a browser and go to
 [Sprint2 doc](https://github.com/computationalmystic/Zephyr-group12/tree/master/Sprint%202)
 
 ## Sprint 3
-[Sprint3 doc](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint3/developer-instructions.md)
+[Final target system](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint3/final-target-system.md)
 
 ## Project issues
 [Issues](https://github.com/computationalmystic/Zephyr-group12/issues)
