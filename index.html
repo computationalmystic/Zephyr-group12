@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+        var clients;
+        var baseUrl = "api/clients/";
+        function GetConnectedDevices(){
+            $.getJSON("/api/clients?", function(data){
+                clients = data;
+                console.log(clients);
+                //Creats list of connected device in html. Needs to be changed to database stuff
+                for(var index in clients){
+                    let client = clients[index.toString()];
+                    let deviceName = GetDeviceModel(client);
+                    let buttons = SetUpDeviceButtons(client);
+                    let item = document.createElement("li");
+                    item.innerHTML = deviceName;
+                    item.appendChild(buttons)
+                    document.getElementById("clientList").appendChild(item); 
+                }
+            });
+        }
+        
+        function SetUpDeviceButtons(client){
+            let type = GetDeviceType(client);
+            let div = document.createElement("div");
+            console.log(type);
+            switch(type){
+                case "Temperature":
+                    //adds buttons for thermostat interaction
+                    let readTemp = document.createElement("button");
+                    readTemp.innerHTML = "Read Temp";
+                    //retrieve temperature, timer duration, and remaining time from board
+                    var sensorTemp = GetDeviceTemp(client);
+                    let timerDuration = GetTimerDuration(client);
+                    var timeRemaining = GetRemainingTime(client);
+                    //when clicking Read Temp button, display the current sensor temp
+                    readTemp.onclick = function(){
+                       tempDisplay.value = sensorTemp + "C";
+                        //ExecuteDeviceFunction(client["endpoint"], "/3/0/4");
+                    };
+                    div.appendChild(readTemp);
+                    let setTemp = document.createElement("button");
+                    setTemp.innerHTML = "Set Temp";
+                    setTemp.onclick = function(){
+                        var tempRead = tempInput.value;
+                        console.log(tempRead + "!!!");
+                        if(tempRead > sensorTemp){
+                            document.getElementById("AC").innerHTML = "Heating!";
+                        } else if(tempRead < sensorTemp){
+                            document.getElementById("AC").innerHTML = "Cooling!";
+                        } else {
+                            document.getElementById("AC").innerHTML = "AC Off"
+                        }
+                        /* Trying to get timer to work.
+                        //Triggers Timer
+                        ExecuteDeviceFunction(client["endpoint"], "/3340/0/5523");
+                        var tempDifference = Math.abs(sensorTemp - tempRead);
+                        if(timeRemaining == (timerDuration*0.5)){
+                            document.getElementById("TimerTemp").innerHTML = (sensorValue -(tempDifference/2));
+                        }*/
+                        //document.getElementById("TimerTemp").innerHTML = timerDuration;
+
+                        //EditDeviceInfo(client, "/3303/0/5700", tempRead);
+                    }
+                    div.appendChild(setTemp);
+                    let tempDisplay = document.createElement("input");
+                    tempDisplay.id = "tempDisplay";
+                    tempDisplay.placeholder = "Temp";
+                    div.appendChild(tempDisplay);
+                    let tempInput = document.createElement("input");
+                    tempInput.id = ("tempInput");
+                    tempInput.placeholder = "Set Temperature"
+                    div.appendChild(tempInput);
+                    break;
+
+                // case "Thermostat":
+                //     let inputDiv = document.createElement("div");
+                //     inputDiv.innerHTML = "Desired Temp: ";
+                //     let inputLabel = document.createElement("span");
+                //     let tempInput = document.createElement("input");
+                //     tempInput.value = "30"; //Need to update for current desired temp
+                //     tempInput.id = "tempInput";
+                //     inputDiv.appendChild(tempInput);
+                //     div.appendChild(inputDiv);
+                //     let setTemp = document.createElement("button");
+                //     setTemp.innerHTML = "Set Temp";
+                //     setTemp.onclick = function(){
+                //         ExecuteDeviceFunction(client["endpoint"], "/3/0/4");
+                //     };
+                //     div.appendChild(document.createElement("br"));
+                //     div.appendChild(setTemp);
+                //     let tempDisply = document.createElement("span");
+                //     tempDisply.innerHTML = "Current Tem: 30"; //Need to update to get current temp from board
+                //     tempDisply.id = "tempDisplay"
+                //     div.appendChild(tempDisply);
+                //     break;
+                case "Lock":
+                    let lockButton = document.createElement("button");
+                    lockButton.onclick = function(){
+                        if(document.getElementById("lockStatus").innerHTML == "Unlocked"){
+                            ExecuteDeviceFunction(client["endpoint"], "/3/0/4");
+                            document.getElementById("lockStatus").innerHTML = "Locked";
+                        }
+                        else{
+                            ExecuteDeviceFunction(client["endpoint"], "/3/0/5");
+                            document.getElementById("lockStatus").innerHTML = "Unlocked";
+                        }
+                    }
+                    div.appendChild(lockButton);
+                    let status = document.createElement("span");
+                    status.id = "lockStatus";
+                    status.innerHTML = "Unlocked";
+                    div.appendChild(status);
+                default:
+                    break;
+            }
+
+            return div;
+        }
+
+        async function StartCoffeeRoutine(day, time){
+            //run routine
+        }
+
+        function IsDeviceRegistered(client){
+            //checks if the device is registered in the data base
+        }
+
+        function RegistarDevice(client){
+            //registar device with the database
+        }
+
+        function GetDeviceType(client){
+            //gets the Type of device
+            let type = GetDeviceResponse(client, "/3/0/17");
+            return type;
+        }
+
+        function GetDeviceModel(client){
+            let model = GetDeviceResponse(client, "/3/0/1");
+            console.log(model);
+            return model;
+        }
+
+        function GetDeviceTemp(client){
+            let temp = GetDeviceResponse(client, "/3303/0/5700");
+            console.log(temp);
+            return temp;
+        }
+
+        function GetTimerDuration(client){
+            let duration = GetDeviceResponse(client, "/3340/0/5521");
+            console.log(duration);
+            return duration;
+        }
+
+        function GetRemainingTime(client){
+            let remainingTime = GetDeviceResponse(client, "/3340/0/5538");
+            return remainingTime;
+        }
+
+        /*
+            ---EXEC CODES----
+            /3/0/4 : Reboot
+
+            /3/0/1 : Get Device Model Number
+            /3/0/17 : Get Device Type
+
+            --Coffee Maker--
+            /333/0/1 : Start Coffee
+            /333/0/2 : Set Routine
+        */
+        function ExecuteDeviceFunction(clientEndpoint, execCode, parameters = "NONE"){
+            
+            if(parameters == "NONE"){
+                $.post(baseUrl + clientEndpoint + execCode)
+                .done(function(data) {
+                    console.log(data);
+                    return "Success";
+                })
+                .fail(function(data) {
+                    errormessage = "Unable to execute resource " + execCode + " for "+ clientEndpoint + " : " + status +" "+ data;
+                    
+                    console.log(errormessage);
+                    return "Fail";
+                });
+            }
+            else{
+                $.post({url:baseUrl + clientEndpoint + execCode, data: parameters})
+                .done(function(data) {
+                    console.log(data);
+                })
+                .fail(function(data) {
+                    errormessage = "Unable to execute resource " + execCode + " for "+ clientEndpoint + " : " + status +" "+ data;
+                    //dialog.open(errormessage);
+                    console.log(errormessage);
+                });
+            }      
+        }
+
+        //Gets data from device
+        function GetDeviceResponse(client, execCode){
+            let url = baseUrl + client["endpoint"] + execCode;
+            let response = "";
+            $.ajax({
+                dataType: "json",
+                url: url,
+                async: false
+            }).done(function(data){
+                console.log(data);
+                response = data["content"]["value"];
+            });
+
+            //console.log(response)
+            return response;
+        }
+        function EditDeviceInfo(client, execCode, edit){
+            let url = baseUrl + client["endpoint"] + execCode;
+            let response = "";
+            $.ajax({
+                dataType: "json",
+                url: url,
+                async: false
+            }).done(function(data){
+                console.log(data);
+                data["content"][edit];
+            });
+
+            //console.log(response)
+            //return response;
+        }
+
+        GetConnectedDevices();
+    </script>
+</head>
+<body>
+    <ul id="clientList">
+        Connected Devices
+    </ul>
+    <h3 id="AC">AC Off</h3>
+    <p id ="TimerTemp"></p>
+</body>
+</html>
