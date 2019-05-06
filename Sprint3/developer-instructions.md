@@ -4,7 +4,7 @@
 
 *Note: Install and use VirtualBox, other VM software such as VMWare are not tested to work.*
 
-*Insert link here*
+[Zephyr VM Download](https://mega.nz/#!u6JzUQyJ!tROere43NketAer3U5n67D6VSZV-61OoFQU1a_UX1YY "ZephyrOS")
 
 Import the copy of the VM by going to *File->Import Appliance* and finding the .ova file you just downloaded.  
 Login to *User* with the password *pass*
