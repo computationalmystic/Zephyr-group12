@@ -39,6 +39,7 @@
                     var sensorTemp = GetDeviceTemp(client);
                     let timerDuration = GetTimerDuration(client);
                     var timeRemaining = GetRemainingTime(client);
+                    //var timerState = GetTimerState(client);
                     //when clicking Read Temp button, display the current sensor temp
                     readTemp.onclick = function(){
                        tempDisplay.value = sensorTemp + "C";
@@ -57,17 +58,29 @@
                         } else {
                             document.getElementById("AC").innerHTML = "AC Off"
                         }
-                        /* Trying to get timer to work.
+
+                        document.getElementById("Done").innerHTML = "";
+                        // Trying to get timer to work.
                         //Triggers Timer
                         ExecuteDeviceFunction(client["endpoint"], "/3340/0/5523");
-                        var tempDifference = Math.abs(sensorTemp - tempRead);
-                        if(timeRemaining == (timerDuration*0.5)){
-                            document.getElementById("TimerTemp").innerHTML = (sensorValue -(tempDifference/2));
-                        }*/
-                        //document.getElementById("TimerTemp").innerHTML = timerDuration;
+                        //var tempDifference = Math.abs(sensorTemp - tempRead);
+                        
+                        do{
+                            timeRemaining = GetRemainingTime(client);
+                            document.getElementById("TimeTemp").innerHTML = timeRemaining.toFixed(2);
+                        }
+                        while(timeRemaining != 0);
+                        
+                        setTimeout(function(){
+                            document.getElementById("Done").innerHTML = "Done!";
+                        },500);
+                            
+                        
+                        
 
                         //EditDeviceInfo(client, "/3303/0/5700", tempRead);
                     }
+                    
                     div.appendChild(setTemp);
                     let tempDisplay = document.createElement("input");
                     tempDisplay.id = "tempDisplay";
@@ -165,6 +178,11 @@
             return remainingTime;
         }
 
+        function GetTimerState(client){
+            var state = GetDeviceResponse(client, "/3340/0/5543");
+            return state;
+        }
+
         /*
             ---EXEC CODES----
             /3/0/4 : Reboot
@@ -244,6 +262,7 @@
         Connected Devices
     </ul>
     <h3 id="AC">AC Off</h3>
-    <p id ="TimerTemp"></p>
+    <p id ="TimeTemp"></p>
+    <p id ="Done"></p>
 </body>
 </html>
