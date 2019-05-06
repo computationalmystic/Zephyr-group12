@@ -34,7 +34,8 @@ In terminal **4** go to your zephyr directory
 and run `source zephyr-env.sh`  
 Inside the zephyr directory go to the project directory   
 `cd samples/net/lwm2m_client`  
-Now build the lwm2m_client project  
+*There should already be a build folder if you downloaded the above VM copy, if there is, skip this next line*    
+Build the lwm2m_client project  
 `west build -b qemu_x86`  
 Run the lwm2m_client project  
 `west build -t run`
