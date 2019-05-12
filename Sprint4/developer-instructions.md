@@ -1,5 +1,7 @@
 You can choose to install Zephyr SDK or install our Zephyr VM copy.
 # Zephyr SDK Installation
+*Note: Only found to be working on Ubuntu, recommended to install VirtualBox and our VM copy below*
+
 Download the latest SDK as a self-extracting installation binary:
 
 `wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.10.0/zephyr-sdk-0.10.0-setup.run`
