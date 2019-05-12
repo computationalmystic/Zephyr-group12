@@ -1,7 +1,7 @@
 # Zephyr Group 12
 
 ## Introduction
-The smart thermostrat can read the house room temperature and we can set up the temperature in all different room such as living room, bedroom, and kitchen. In addition, the timer can be used to schedule the thermostrat operation duration.
+The smart thermostrat can read the house temperature and set the thermostat based on user input. It will then automatically switch to heating or cooling based on the temperature the user chose and use the timer to simulate how long it will heat/cool for.
 
 ## Zephyr VM Installation
 
@@ -13,6 +13,12 @@ The smart thermostrat can read the house room temperature and we can set up the 
 
 Import the copy of the VM by going to *File->Import Appliance* and finding the .ova file you just downloaded.  
 Login to *User* with the password *pass*
+
+### Update the index.html file
+
+Rather than update the large ZephyrOS VM file every time the code is updated, you can download the latest index.html file in this repository.
+
+After downloading the current index.html file, in the ZephyrOS VM go to Files, then navigate to the Downloads folder. Right click the leshan-server-demo.jar file and open with Archive Manager. In Archive Manager, go to the webapp folder and replace the index.html located inside with the current index.html you downloaded from this repository. 
 
 ### Setting Up QEMU with Net-Tools
 
