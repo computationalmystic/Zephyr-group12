@@ -65,5 +65,7 @@ Run a browser and go to
 
 [Developer instructions](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint4/developer-instructions.md)
 
+Bugs need fixing:
+
 ## Project issues
 [Issues](https://github.com/computationalmystic/Zephyr-group12/issues)
