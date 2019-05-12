@@ -14,11 +14,11 @@ The smart thermostrat can read the house temperature and set the thermostat base
 Import the copy of the VM by going to *File->Import Appliance* and finding the .ova file you just downloaded.  
 Login to *User* with the password *pass*
 
-### Update the index.html file
+### Update the leshan-server file
 
-Rather than update the large ZephyrOS VM file every time the code is updated, you can download the latest index.html file in this repository.
+Rather than update the large ZephyrOS VM file every time the code is updated, you can download the latest leshan-server-demo.jar file in this repository.
 
-After downloading the current index.html file, in the ZephyrOS VM go to Files, then navigate to the Downloads folder. Right click the leshan-server-demo.jar file and open with Archive Manager. In Archive Manager, go to the webapp folder and replace the index.html located inside with the current index.html you downloaded from this repository. 
+After downloading the current leshan-server-demo.jar file, in the ZephyrOS VM go to Files, then navigate to the Downloads folder. Replace the leshan-server-demo.jar file with the current version you downloaded from this repository. 
 
 ### Setting Up QEMU with Net-Tools
 
