@@ -68,6 +68,9 @@ Run a browser and go to
 [Developer instructions](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint4/developer-instructions.md)
 
 Bugs need fixing:
+1. Not able to write to the board.
+2. Not able to put zephyr on EC2 server.
+3. Building failed on some machines.
 
 ## Project issues
 [Issues](https://github.com/computationalmystic/Zephyr-group12/issues)
