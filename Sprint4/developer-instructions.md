@@ -1,3 +1,23 @@
+You can choose to install Zephyr SDK or install our Zephyr VM copy.
+# Zephyr SDK Installation
+Download the latest SDK as a self-extracting installation binary:
+
+`wget https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v0.10.0/zephyr-sdk-0.10.0-setup.run`
+
+Run the installation binary:
+
+`cd <sdk download directory>`
+
+`sh zephyr-sdk-0.10.0-setup.run`
+
+Follow the installation instructions on the screen. The toolchain’s default installation location is `/opt/zephyr-sdk/`, but it is recommended to install the SDK under your home directory instead.
+To install the SDK in the default location, you need to run the installation binary as root.
+
+To use the Zephyr SDK, export the following environment variables and use the target location where SDK was installed:
+
+`export ZEPHYR_TOOLCHAIN_VARIANT=zephyr`
+
+`export ZEPHYR_SDK_INSTALL_DIR=<sdk installation directory>`
 # Zephyr VM Installation
 
 ### Download a copy of our VM
