@@ -60,5 +60,10 @@ Run a browser and go to
 ## Sprint 3
 [Final target system](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint3/final-target-system.md)
 
+## Sprint 4
+[Demo video]()
+
+[Developer instructions](https://github.com/computationalmystic/Zephyr-group12/blob/master/Sprint4/developer-instructions.md)
+
 ## Project issues
 [Issues](https://github.com/computationalmystic/Zephyr-group12/issues)
